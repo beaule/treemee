@@ -48,7 +48,9 @@ if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('partials/error', {
+      layout: 'error',
       message: err.message,
+      status: err.status || 500,
       error: err
     });
   });
@@ -59,7 +61,9 @@ if (app.get('env') === 'development') {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('partials/error', {
+    layout: 'error',
     message: err.message,
+    status: err.status || 500,
     error: {}
   });
 });
