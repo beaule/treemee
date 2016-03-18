@@ -6,7 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var memories = require('./routes/memories');
+var memory = require('./routes/memory');
 var listNodes = require('./routes/listNodes');
+
 
 var app = express();
 var router = express.Router();
@@ -27,6 +30,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 router.get('/', index);
+router.get('/memories', memories);
+router.get('/memory', memory);
 router.get('/listNodes', listNodes);
 
 app.use('/', router);
